@@ -52,6 +52,7 @@ streamlit run app.py
 ## Future Improvements
 - Real-time code suggestions
 - Support for multiple programming languages
+- Add a memory component that can help us keep a multi-chat setup
 
 ---
 
