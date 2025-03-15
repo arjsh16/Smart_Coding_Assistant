@@ -70,8 +70,7 @@ def compare_relevancy(stack_data, gemini_data, query):
     
     if stack_similarity > gemini_similarity:
         return stack_data
-    else:
-        return gemini_data
+    return gemini_data
 
 # This is what we tell Gemini
 context = '''
@@ -90,6 +89,8 @@ def users_request(parameters):
     # Python code that satisfies the user's request here
     return output
 ```
+Time Complexity: 
+Space Complexity: 
 '''
 
 def main(prompt):
