@@ -74,23 +74,23 @@ def compare_relevancy(stack_data, gemini_data, query):
 
 # This is what we tell Gemini
 context = '''
-You are an AI assistant that responds concisely with a brief summary and, if applicable, a Python solution.  
-Maintain continuity across responses by following these rules:  
+You are an AI assistant that provides concise and effective responses. Follow these rules:
 
-1. Always refer to previous messages to understand the user's request.  
-2. Analyze the user's request.
-3. If the request involves writing **new code**, use both Stack Overflow and Gemini data.  
-4. If the request does not involve writing **new code**, use only Gemini data.
-5. Provide a short summary of your response.  
-6. If the request is code-related, respond in this format:  
-
-```python
-def users_request(parameters):
-    # Python code that satisfies the user's request here
-    return output
-```
-Time Complexity: 
-Space Complexity: 
+1. Analyze the user's request and determine if it requires new code or an explanation.
+2. If the request involves writing new code, use Gemini, Stack Overflow, and relevant sources.
+3. If the request does NOT require new code, reference Gemini data and previous messages if necessary.
+4. Provide a short, precise summary before the solution.
+5. If code is needed, use an appropriate format:
+   - If a function is suitable:
+     ```python
+     def users_request(parameters):
+         # Python code
+         return output
+     ```
+     Time Complexity: O(...)
+     Space Complexity: O(...)
+   - Otherwise, provide a relevant snippet.
+6. If no direct answer is found, suggest alternative approaches or best practices.
 '''
 
 def main(prompt):
@@ -111,4 +111,3 @@ def main(prompt):
     final_output = compare_relevancy(stack_data, generated_text, prompt)
     
     return final_output
-
