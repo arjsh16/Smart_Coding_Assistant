@@ -3,6 +3,7 @@ from details import *
 import streamlit as st
 from stack_gemini import main
 from memory import *
+import requests
 
 st.markdown("""
 <style>
@@ -43,7 +44,12 @@ prompt = st.chat_input('Your Prompt goes here')
 if prompt:
     st.chat_message('user').markdown(prompt)
     st.session_state.messages.append({'role': 'user', 'content': prompt})
-    generated_text = main(prompt)
-    save_old_messages(prompt, generated_text)
-    st.chat_message('assistant').markdown(generated_text)
-    st.session_state.messages.append({'role': 'assistant', 'content': generated_text})
+    response = requests.post(" https://smart-coding-assistant-5167426456.us-central1.run.app/get_code", json={"prompt": prompt})
+    if response.status_code == 200:
+        generated_text = response.json()["output"]
+        with st.chat_message("assistant"):
+            st.markdown(generated_text)
+        st.session_state.messages.append({"role": "assistant", "content": generated_text})
+        save_old_messages(prompt, generated_text)
+    else:
+        st.error("Failed to fetch code suggestion.")
