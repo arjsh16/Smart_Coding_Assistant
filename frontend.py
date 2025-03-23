@@ -44,7 +44,7 @@ prompt = st.chat_input('Your Prompt goes here')
 if prompt:
     st.chat_message('user').markdown(prompt)
     st.session_state.messages.append({'role': 'user', 'content': prompt})
-    response = requests.post(" https://smart-coding-assistant-5167426456.us-central1.run.app/get_code", json={"prompt": prompt})
+    response = requests.post("https://fastapi-backend-5167426456.asia-south2.run.app/get_code", json={"prompt": prompt})
     if response.status_code == 200:
         generated_text = response.json()["output"]
         with st.chat_message("assistant"):
