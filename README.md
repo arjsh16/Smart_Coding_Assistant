@@ -38,6 +38,8 @@ streamlit run app.py
 - StackExchange API
 - TF-IDF (from sklearn.feature_extraction.text)
 - Cosine Similarity (from sklearn.metrics.pairwise)
+- FastAPI
+- Google Cloud
  
 ---
 
