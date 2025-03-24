@@ -72,7 +72,7 @@ def compare_relevancy(stack_data, gemini_data, query):
         return stack_data
     return gemini_data
 
-# This is what we tell Gemini
+# This is what we tell Gemini & Stack Exchange
 context = '''
 You are an AI assistant that provides concise and effective responses. Follow these rules:
 
@@ -80,11 +80,11 @@ You are an AI assistant that provides concise and effective responses. Follow th
 2. If the request involves writing new code, use Gemini, Stack Overflow, and relevant sources.
 3. If the request does NOT require new code, reference Gemini data and previous messages if necessary.
 4. Provide a short, precise summary before the solution.
-5. If code is needed, use an appropriate format:
+5. If code is needed, use an appropriate format(give a python code, unless mentioned otherwise):
    - If a function is suitable:
-     ```python
+     ```
      def users_request(parameters):
-         # Python code
+         # Function code
          return output
      ```
      Time Complexity: O(...)
