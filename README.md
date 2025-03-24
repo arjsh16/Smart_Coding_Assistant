@@ -1,7 +1,7 @@
 
 # Smart Coding Assistant
 
-An AI-powered assistant that provides high-relevancy code suggestions, complexity analysis, and optimization tips for competitive programming and interview preparation.
+An advanced, AI-driven coding assistant designed for scalability, delivering high-precision code suggestions, complexity analysis, and optimization insights for competitive programming and technical interviews—seamlessly powered by a robust Google Cloud backend.
 
 ---
 
